@@ -28,9 +28,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/note_text"
-        android:textSize="23dp"
+        android:textSize="20sp"
+        android:hint="Type your note here"
+        android:gravity="top"
         android:textColor="#000"
         android:padding="5dp"
+        android:visibility="visible"
         />
 
 </LinearLayout>
