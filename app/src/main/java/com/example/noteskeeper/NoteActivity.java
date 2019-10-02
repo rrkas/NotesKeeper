@@ -91,9 +91,11 @@ public class NoteActivity extends AppCompatActivity implements View.OnTouchListe
 
         lbl_title.setVisibility(View.GONE);
         txt_title.setVisibility(View.VISIBLE);
-
-        txt_title.setText(lbl_title.getText());
-
+        if(getIncomingIntent()) {
+            txt_title.setHint(lbl_title.getText());
+        }else{
+            txt_title.setText(lbl_title.getText());
+        }
         mode = EDIT_MODE_ENABLED;
         enableInteraction();
     }
@@ -103,15 +105,16 @@ public class NoteActivity extends AppCompatActivity implements View.OnTouchListe
 
         lbl_title.setVisibility(View.VISIBLE);
         txt_title.setVisibility(View.GONE);
-
-        lbl_title.setText(txt_title.getText());
-
+        if(txt_title.getText().toString().equals("")){
+            lbl_title.setText(txt_title.getHint());
+        }else {
+            lbl_title.setText(txt_title.getText());
+        }
         mode = EDIT_MODE_DISABLED;
         disableInteraction();
         hideKeyBoard();
     }
     private void setNewNoteProperties(){
-        lbl_title.setText("Note Title");
         lbl_title.setText("Note Title");
     }
     @Override
