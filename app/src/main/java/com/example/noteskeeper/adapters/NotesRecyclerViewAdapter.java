@@ -6,10 +6,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.noteskeeper.R;
 import com.example.noteskeeper.note.Note;
+import com.example.noteskeeper.utils.Utility;
 
 import java.util.ArrayList;
 
@@ -32,8 +34,17 @@ public class NotesRecyclerViewAdapter extends RecyclerView.Adapter<NotesRecycler
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.timeStamp.setText(mNotes.get(position).getTimeStamp());
-        holder.title.setText(mNotes.get(position).getTitle());
+
+        try{
+            String month = mNotes.get(position).getTimeStamp().substring(0,2);
+            month = Utility.getMonthFromNumber(month);
+            String year = mNotes.get(position).getTimeStamp().substring(3);
+            String timeStamp = month + " " + year;
+            holder.timeStamp.setText(timeStamp);
+            holder.title.setText(mNotes.get(position).getTitle());
+        }catch (Exception e){
+
+        }
     }
 
     @Override
