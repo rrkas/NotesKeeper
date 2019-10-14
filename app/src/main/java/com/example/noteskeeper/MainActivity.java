@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 
 import com.example.noteskeeper.adapters.NotesRecyclerViewAdapter;
@@ -35,6 +36,9 @@ public class MainActivity extends AppCompatActivity implements NotesRecyclerView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
 
         noteRepository = new NoteRepository(this);
 
@@ -88,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements NotesRecyclerView
         mNotesRecyclerViewAdapter.notifyDataSetChanged();
         noteRepository.deleteNote(note);
     }
+
     private ItemTouchHelper.SimpleCallback itemTouchHelperCallBack = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
         @Override
         public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {

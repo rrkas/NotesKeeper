@@ -1,15 +1,8 @@
 package com.example.noteskeeper;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,6 +11,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.noteskeeper.note.Note;
 import com.example.noteskeeper.persistance.NoteRepository;
@@ -256,7 +253,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnTouchListe
         txt_text.requestFocus();
     }
     private void hideKeyBoard(){
-        InputMethodManager inputMethodManager = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        InputMethodManager inputMethodManager = (InputMethodManager) this.getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE);
         View view = this.getCurrentFocus();
         if(view == null){
             view = new View(this);
