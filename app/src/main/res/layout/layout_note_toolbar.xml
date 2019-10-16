@@ -69,9 +69,7 @@
         android:layout_marginLeft="15dp"
         android:textSize="23sp"
         android:visibility="gone"
-        android:background="@android:color/white"
-        android:padding="2dp"
-
+        android:background="@drawable/note_txt_back"
         />
 
 </LinearLayout>

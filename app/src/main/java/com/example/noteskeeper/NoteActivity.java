@@ -53,6 +53,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnTouchListe
         setContentView(R.layout.activity_note);
 
         myInitialNote=new Note();
+        myFinalNote = new Note();
 
         txt_text = findViewById(R.id.note_text);
         txt_title = findViewById(R.id.note_edit_title);
@@ -99,7 +100,6 @@ public class NoteActivity extends AppCompatActivity implements View.OnTouchListe
     public boolean getIncomingIntent(){
         if(getIntent().hasExtra("selected_note")){
             myInitialNote = getIntent().getParcelableExtra("selected_note");
-            myFinalNote = new Note();
             myFinalNote.setTitle(myInitialNote.getTitle());
             myFinalNote.setContent(myInitialNote.getContent());
             myFinalNote.setTimeStamp(myInitialNote.getTimeStamp());

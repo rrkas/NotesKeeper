@@ -36,10 +36,11 @@ public class NotesRecyclerViewAdapter extends RecyclerView.Adapter<NotesRecycler
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         try{
-            String month = mNotes.get(position).getTimeStamp().substring(0,2);
+            String date = mNotes.get(position).getTimeStamp().substring(0,2);
+            String month = mNotes.get(position).getTimeStamp().substring(3,5);
             month = Utility.getMonthFromNumber(month);
-            String year = mNotes.get(position).getTimeStamp().substring(3);
-            String timeStamp = month + " " + year;
+            String year = mNotes.get(position).getTimeStamp().substring(6);
+            String timeStamp = date + " " + month + " " + year;
             holder.timeStamp.setText(timeStamp);
             holder.title.setText(mNotes.get(position).getTitle());
         }catch (Exception e){

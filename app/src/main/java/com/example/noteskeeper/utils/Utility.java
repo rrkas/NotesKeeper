@@ -6,12 +6,9 @@ import java.util.Date;
 public class Utility {
     public static String getCurrentTimeStamp(){
         try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("MM-yyyy");
-            String currentDateTime = dateFormat.format(new Date());
-
-            return currentDateTime;
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            return dateFormat.format(new Date());
         }catch (Exception e){
-
         }
         return null;
     }
